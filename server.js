@@ -8,7 +8,7 @@ app.use('/static', express.static('mergedpdf'))
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "templates/index.html"))
+  res.sendFile(path.join(__dirname, "index.html"))
 })
  
 app.post('/merge', upload.array('pdfs', 3), async (req, res, next)=> {
