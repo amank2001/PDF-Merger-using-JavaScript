@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"))
 })
  
-app.post('https://amank2001.github.io/merge', upload.array('pdfs', 3), async (req, res, next)=> {
+app.post('/merge', upload.array('pdfs', 3), async (req, res, next)=> {
   console.log(req.files)
   let d = await mergePdfs(path.join(__dirname, req.files[0].path), path.join(__dirname, req.files[1].path), path.join(__dirname, req.files[2].path))
   res.redirect(`static/${d}.pdf` )
